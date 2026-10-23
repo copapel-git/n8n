@@ -1,8 +1,8 @@
-ARG NODE_VERSION=24.15.0
+ARG NODE_VERSION=24.22.1
 ARG N8N_VERSION=snapshot
 
 # Builder stage exists because the runtime base image has no toolchain.
-FROM node:${NODE_VERSION}-alpine3.22 AS builder
+FROM node:${NODE_VERSION}-alpine3.23 AS builder
 COPY ./compiled /usr/local/lib/node_modules/n8n
 RUN apk add --no-cache python3 make g++ && \
     cd /usr/local/lib/node_modules/n8n && \
